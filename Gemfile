@@ -8,6 +8,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.9'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'rspec-its', '~> 1.0.1'
+  gem 'faker',     '1.4.2'
 end
 
 group :test do
@@ -45,6 +46,9 @@ gem 'spring', '~> 1.1.3' ,        group: :development
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
+
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
