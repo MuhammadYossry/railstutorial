@@ -16,10 +16,9 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      log_in @ser
-      remember user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to user
+      user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
@@ -52,10 +51,6 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
 
-    def authenticated?(remember_token)
-      return false if remember_digest.nil?
-      BCrypt::Password.new(remember_digest).is_password?(remember_token)
-    end
 
     def logged_in_user
       unless logged_in?
